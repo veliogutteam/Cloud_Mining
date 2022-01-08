@@ -15,7 +15,7 @@ while True:
 
     if not data == "":
         try:
-            UDPClientSocket.sendto(data.encode(), serverAddressPort)
+            UDPClientSocket.sendto(data, serverAddressPort)
         except Exception as e:
             print(e)
     time.sleep(1)
