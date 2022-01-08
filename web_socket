@@ -1,1 +1,74 @@
+import socketserver
+import socket
+import time
+from http import server
+import datetime
+from flask import Flask, render_template_string
 
+from time import sleep
+
+serialData = "-"
+
+app = Flask(__name__)
+
+udpServerSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+udpServerSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+socketServerPort = 3600
+udpServerSocket.bind(("0.0.0.0", socketServerPort))
+print('Listening on port %s ...' % socketServerPort)
+
+@app.route("/")
+def index():
+    return render_template_string("""<!DOC html>
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script type="text/javascript">
+    (function worker() {
+  $.get('/data', function(data) {
+    var x = data.split("@");
+    $('#time').html(x[0]);
+    $('#hash').html(x[1]);
+    setTimeout(worker, 1000);
+  });
+})();
+</script>
+
+<meta charset="utf-8" />
+<title>Test</title>
+</head>
+
+<style type="text/css">
+body {background-color: #354850; font-family: Arial;}
+h1   {color: #448aff;}
+p    {color: white;}
+</style>
+
+<body>
+
+<h1>
+    Date & Time:
+</h1>
+
+ <p id="time"><p>
+
+<h1>
+    Data:
+</h1>
+
+ <p id="hash"><p>
+
+</body>
+</html>""")
+
+@app.route('/data')
+def data():
+    try:
+        serialData = (udpServerSocket.recvfrom(1024)[0]).decode("utf-8")
+    except Exception as e:
+        serialData = "-"
+        print(e)
+    return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " @ " + serialData
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=80)
