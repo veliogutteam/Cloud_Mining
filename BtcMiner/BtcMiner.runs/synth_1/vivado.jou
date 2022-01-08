@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Jan  8 15:27:31 2022
+# Process ID: 26108
+# Current directory: D:/Archive/notes/Ozyegin_MSc/2021-2022_Fall/CS550/Project/BtcMiner/BtcMiner.runs/synth_1
+# Command line: vivado.exe -log BtcMiner.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source BtcMiner.tcl
+# Log file: D:/Archive/notes/Ozyegin_MSc/2021-2022_Fall/CS550/Project/BtcMiner/BtcMiner.runs/synth_1/BtcMiner.vds
+# Journal file: D:/Archive/notes/Ozyegin_MSc/2021-2022_Fall/CS550/Project/BtcMiner/BtcMiner.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source BtcMiner.tcl -notrace

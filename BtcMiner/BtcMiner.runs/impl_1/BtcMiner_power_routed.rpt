@@ -1,0 +1,213 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date             : Sat Jan  8 15:39:02 2022
+| Host             : eminc running 64-bit major release  (build 9200)
+| Command          : report_power -file BtcMiner_power_routed.rpt -pb BtcMiner_power_summary_routed.pb -rpx BtcMiner_power_routed.rpx
+| Design           : BtcMiner
+| Device           : xc7a100tcsg324-1
+| Design State     : routed
+| Grade            : commercial
+| Process          : typical
+| Characterization : Production
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+--------------+
+| Total On-Chip Power (W)  | 1.107        |
+| Design Power Budget (W)  | Unspecified* |
+| Power Budget Margin (W)  | NA           |
+| Dynamic (W)              | 1.007        |
+| Device Static (W)        | 0.101        |
+| Effective TJA (C/W)      | 4.6          |
+| Max Ambient (C)          | 79.9         |
+| Junction Temperature (C) | 30.1         |
+| Confidence Level         | Medium       |
+| Setting File             | ---          |
+| Simulation Activity File | ---          |
+| Design Nets Matched      | NA           |
++--------------------------+--------------+
+* Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
+
+
+1.1 On-Chip Components
+----------------------
+
++-------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
++-------------------------+-----------+----------+-----------+-----------------+
+| Clocks                  |     0.072 |        3 |       --- |             --- |
+| Slice Logic             |     0.413 |    52871 |       --- |             --- |
+|   LUT as Logic          |     0.374 |    21230 |     63400 |           33.49 |
+|   Register              |     0.017 |    22065 |    126800 |           17.40 |
+|   LUT as Shift Register |     0.012 |     1145 |     19000 |            6.03 |
+|   CARRY4                |     0.011 |     1982 |     15850 |           12.50 |
+|   Others                |     0.000 |      145 |       --- |             --- |
+| Signals                 |     0.518 |    46273 |       --- |             --- |
+| I/O                     |     0.004 |        4 |       210 |            1.90 |
+| Static Power            |     0.101 |          |           |                 |
+| Total                   |     1.107 |          |           |                 |
++-------------------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++-----------+-------------+-----------+-------------+------------+
+| Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
++-----------+-------------+-----------+-------------+------------+
+| Vccint    |       1.000 |     1.021 |       1.003 |      0.018 |
+| Vccaux    |       1.800 |     0.019 |       0.000 |      0.018 |
+| Vcco33    |       3.300 |     0.005 |       0.001 |      0.004 |
+| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
+| Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
+| Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
+| Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
+| Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
+| Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
+| Vccbram   |       1.000 |     0.000 |       0.000 |      0.000 |
+| MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
+| MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
+| Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
++-----------+-------------+-----------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                               | Action                                                                                                     |
++-----------------------------+------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                      |                                                                                                            |
+| Clock nodes activity        | High       | User specified more than 95% of clocks                |                                                                                                            |
+| I/O nodes activity          | Medium     | More than 5% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view   |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes        | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views |
+| Device models               | High       | Device models are Production                          |                                                                                                            |
+|                             |            |                                                       |                                                                                                            |
+| Overall confidence level    | Medium     |                                                       |                                                                                                            |
++-----------------------------+------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+--------------------------+
+| Ambient Temp (C)      | 25.0                     |
+| ThetaJA (C/W)         | 4.6                      |
+| Airflow (LFM)         | 250                      |
+| Heat Sink             | medium (Medium Profile)  |
+| ThetaSA (C/W)         | 4.6                      |
+| Board Selection       | medium (10"x10")         |
+| # of Board Layers     | 12to15 (12 to 15 Layers) |
+| Board Temperature (C) | 25.0                     |
++-----------------------+--------------------------+
+
+
+2.2 Clock Constraints
+---------------------
+
++-------------+--------+-----------------+
+| Clock       | Domain | Constraint (ns) |
++-------------+--------+-----------------+
+| sys_clk_pin | clk    |            14.3 |
++-------------+--------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++--------------------------+-----------+
+| Name                     | Power (W) |
++--------------------------+-----------+
+| BtcMiner                 |     1.007 |
+|   miner                  |     1.002 |
+|     Lshapipe             |     1.001 |
+|       pipeline[0].stage  |     0.005 |
+|       pipeline[10].stage |     0.011 |
+|       pipeline[11].stage |     0.011 |
+|       pipeline[12].stage |     0.011 |
+|       pipeline[13].stage |     0.011 |
+|       pipeline[14].stage |     0.011 |
+|       pipeline[15].stage |     0.012 |
+|       pipeline[16].stage |     0.011 |
+|       pipeline[17].stage |     0.013 |
+|       pipeline[18].stage |     0.011 |
+|       pipeline[19].stage |     0.012 |
+|       pipeline[1].stage  |     0.007 |
+|       pipeline[20].stage |     0.012 |
+|       pipeline[21].stage |     0.014 |
+|       pipeline[22].stage |     0.012 |
+|       pipeline[23].stage |     0.014 |
+|       pipeline[24].stage |     0.014 |
+|       pipeline[25].stage |     0.014 |
+|       pipeline[26].stage |     0.014 |
+|       pipeline[27].stage |     0.014 |
+|       pipeline[28].stage |     0.015 |
+|       pipeline[29].stage |     0.016 |
+|       pipeline[2].stage  |     0.009 |
+|       pipeline[30].stage |     0.018 |
+|       pipeline[31].stage |     0.018 |
+|       pipeline[32].stage |     0.018 |
+|       pipeline[33].stage |     0.018 |
+|       pipeline[34].stage |     0.019 |
+|       pipeline[35].stage |     0.019 |
+|       pipeline[36].stage |     0.019 |
+|       pipeline[37].stage |     0.019 |
+|       pipeline[38].stage |     0.019 |
+|       pipeline[39].stage |     0.019 |
+|       pipeline[3].stage  |     0.011 |
+|       pipeline[40].stage |     0.019 |
+|       pipeline[41].stage |     0.019 |
+|       pipeline[42].stage |     0.020 |
+|       pipeline[43].stage |     0.022 |
+|       pipeline[44].stage |     0.020 |
+|       pipeline[45].stage |     0.020 |
+|       pipeline[46].stage |     0.020 |
+|       pipeline[47].stage |     0.020 |
+|       pipeline[48].stage |     0.020 |
+|       pipeline[49].stage |     0.021 |
+|       pipeline[4].stage  |     0.012 |
+|       pipeline[50].stage |     0.020 |
+|       pipeline[51].stage |     0.021 |
+|       pipeline[52].stage |     0.021 |
+|       pipeline[53].stage |     0.020 |
+|       pipeline[54].stage |     0.020 |
+|       pipeline[55].stage |     0.020 |
+|       pipeline[56].stage |     0.019 |
+|       pipeline[57].stage |     0.019 |
+|       pipeline[58].stage |     0.019 |
+|       pipeline[59].stage |     0.019 |
+|       pipeline[5].stage  |     0.011 |
+|       pipeline[60].stage |     0.020 |
+|       pipeline[61].stage |     0.019 |
+|       pipeline[62].stage |     0.018 |
+|       pipeline[63].stage |     0.005 |
+|       pipeline[6].stage  |     0.011 |
+|       pipeline[7].stage  |     0.011 |
+|       pipeline[8].stage  |     0.012 |
+|       pipeline[9].stage  |     0.011 |
++--------------------------+-----------+
+
+
