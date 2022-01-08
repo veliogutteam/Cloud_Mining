@@ -1,0 +1,21 @@
+from http import server
+import socketserver
+import socket
+import serial
+import time
+
+serverAddressPort   = ('15.237.62.202', 3600)
+UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+bufferSize          = 1024
+
+ser = serial.Serial("COM5", 115200)
+
+while True:
+    data = ser.readline()
+
+    if not data == "":
+        try:
+            UDPClientSocket.sendto(data.encode(), serverAddressPort)
+        except Exception as e:
+            print(e)
+    time.sleep(1)
